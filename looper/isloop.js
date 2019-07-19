@@ -2,7 +2,20 @@
 
 //Complete this algo
 const isLoop = (linkedlist) => {
-
+  const memo = {};
+  const helper = (node) => {
+    console.log(memo);
+    if (!memo[node.value]) {
+      memo[node.value] = node.value;
+      if (node.next) {
+        return helper(node.next)
+      }
+    } else {
+      return true
+    }
+    return false
+  }
+  return helper(linkedlist.head)
 };
 
 
